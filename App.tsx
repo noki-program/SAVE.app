@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 //Screens.tsでまとめたものをimport
-import { signInScreen, signUpScreen, welcomeScreen, homeScreen } from "./src/Screens/Screens";
+import { signInScreen, signUpScreen, welcomeScreen, homeScreen } from "./src/Screens/screens";
 
 import "./src/Fire";
 

@@ -23,7 +23,7 @@ export function signInScreen() {
   const navigation = useNavigation();
 
   const toTaskList = (user: signedInUser) => {
-    navigation.navigate("taskList", { user: user });
+    navigation.navigate("home", { user: user });
   };
 
   const toSignUp = () => {
