@@ -22,7 +22,7 @@ export function signInScreen() {
 
   const navigation = useNavigation();
 
-  const toTaskList = (user: signedInUser) => {
+  const toHome = (user: signedInUser) => {
     navigation.navigate("home", { user: user });
   };
 
@@ -51,7 +51,7 @@ export function signInScreen() {
           email: user.user.email,
           uid: user.user.uid,
         };
-        toTaskList(currentUser);
+        toHome(currentUser);
       })
       .catch((error) => {
         console.log(error);
