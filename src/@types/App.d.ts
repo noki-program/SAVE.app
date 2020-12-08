@@ -2,7 +2,7 @@ type RootStackParamList = {
     welcome: undefined;
     signIn: undefined;
     signUp: undefined;
-    taskList: undifined;
+    home: { user: signedInUser };
 };
 
 type signedInUser = {

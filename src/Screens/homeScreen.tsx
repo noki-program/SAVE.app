@@ -2,16 +2,16 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useNavigation, RouteProp } from "@react-navigation/native";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-const Tab = createBottomTabNavigator();   
+const Tab = createBottomTabNavigator();
 
 type taskListScreenRouteProps = RouteProp<RootStackParamList, "home">;
 type Props = {
   route: taskListScreenRouteProps;
 };
 
-export function taskListScreen(props: Props) {
+export function homeScreen(props: Props) {
   const currentUser = props.route.params.user;
   return (
     <View style={styles.container}>
