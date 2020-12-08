@@ -1,14 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
-export function taskListScreen() {
+export function tweetListScreen() {
+  
   return (
     <View style={styles.container}>
-      <Text>taskList</Text>
+      <Text>tweetList</Text>
     </View>
   );
 }
