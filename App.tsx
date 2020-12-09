@@ -1,20 +1,17 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 //navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 //Screens.tsでまとめたものをimport
-import { signInScreen, signUpScreen, welcomeScreen, homeScreen } from "./src/Screens/screens";
+import { signInScreen, signUpScreen, welcomeScreen, homeScreen, addTaskScreen } from "./src/Screens/screens";
 
 import "./src/Fire";
 
 const Stack = createStackNavigator<RootStackParamList>();
-/* ここまで追加 */
 
 export default function App() {
   return (
-    /* ここから追加 */
     <NavigationContainer>
       <Stack.Navigator initialRouteName="welcome">
         <Stack.Screen
@@ -37,8 +34,12 @@ export default function App() {
           component={homeScreen}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="addTask"
+          component={addTaskScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-    /* ここまで追加 */
   );
 }

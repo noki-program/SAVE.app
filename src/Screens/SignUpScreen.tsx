@@ -11,10 +11,14 @@ import {
   SafeAreaView,
   Alert,
   StatusBar,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions,
 } from "react-native";
+
 import { useNavigation } from "@react-navigation/native";
 import firebase from "firebase";
+
+const screenWidth = Dimensions.get("screen").width;
 
 export function signUpScreen() {
   const [email, setEmail] = useState("");
@@ -56,40 +60,41 @@ export function signUpScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView style={styles.container}>
-        <View style={styles.titleAndFieldView}>
-          <TouchableOpacity
-            style={styles.backWelcome}
-            onPress={() => {
-              toWelcome();
+      <View style={styles.titleAndFieldView}>
+        <TouchableOpacity
+          style={styles.backWelcome}
+          onPress={() => {
+            toWelcome();
+          }}
+        >
+          <Text style={styles.backWelcomeText}>{backButton}</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.screenTitle}>アカウントを作成</Text>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputContainerItem}
+            placeholder="  メールアドレス"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            onChangeText={(email) => {
+              setEmail(email);
             }}
-          >
-            <Text style={styles.backWelcomeText}>{backButton}</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.screenTitle}>アカウントを作成</Text>
-
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.inputContainerItem}
-              placeholder="  メールアドレス"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              onChangeText={(email) => {
-                setEmail(email);
-              }}
-            />
-            <TextInput
-              style={styles.inputContainerItem}
-              placeholder="  パスワード"
-              keyboardType="visible-password"
-              secureTextEntry={true}
-              onChangeText={(password) => {
-                setPassword(password);
-              }}
-            />
-          </View>
-
+          />
+          <TextInput
+            style={styles.inputContainerItem}
+            placeholder="  パスワード"
+            keyboardType="visible-password"
+            secureTextEntry={true}
+            onChangeText={(password) => {
+              setPassword(password);
+            }}
+          />
+        </View>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+        >
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.signUp}
@@ -109,10 +114,9 @@ export function signUpScreen() {
               <Text style={styles.nextStepText}>次へ</Text>
             </TouchableOpacity>
           </View>
-        </View>
-
-        <ExpoStatusBar style="auto" />
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      </View>
+      <ExpoStatusBar style="auto" />
     </SafeAreaView>
   );
 }
@@ -121,7 +125,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    width: "100%",
+    width: screenWidth * 1,
     alignItems: "center",
     justifyContent: "center",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
@@ -177,17 +181,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     bottom: "1%",
-    width: "100%",
     backgroundColor: "#eee",
-    position: "absolute",
+    flex: 1,
+    width: "100%",
   },
 
   signUp: {
     width: 120,
     height: 40,
     position: "absolute",
-    bottom: "3%",
-    left: "8%",
+    bottom: "7%",
+    right: "18%",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -204,8 +208,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    bottom: "3%",
-    right: "8%",
+    bottom: "7%",
+    left: "25%",
   },
 
   nextStepText: {

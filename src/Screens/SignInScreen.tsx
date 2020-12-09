@@ -22,7 +22,7 @@ export function signInScreen() {
 
   const navigation = useNavigation();
 
-  const toTaskList = (user: signedInUser) => {
+  const toHome = (user: signedInUser) => {
     navigation.navigate("home", { user: user });
   };
 
@@ -30,7 +30,7 @@ export function signInScreen() {
     navigation.navigate("signUp");
   };
 
-  const toWelcome = () => {
+  const toBack = () => {
     navigation.navigate("welcome");
   };
   const backButton = "<";
@@ -51,7 +51,7 @@ export function signInScreen() {
           email: user.user.email,
           uid: user.user.uid,
         };
-        toTaskList(currentUser);
+        toHome(currentUser);
       })
       .catch((error) => {
         console.log(error);
@@ -61,43 +61,45 @@ export function signInScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView style={styles.container}>
-        <View style={styles.titleAndFieldView}>
-          <TouchableOpacity
-            style={styles.backWelcome}
-            onPress={() => {
-              toWelcome();
+      <View style={styles.titleAndFieldView}>
+        <TouchableOpacity
+          style={styles.back}
+          onPress={() => {
+            toBack();
+          }}
+        >
+          <Text style={styles.backText}>{backButton}</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.screenTitle}>ログイン</Text>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputContainerItem}
+            placeholder="  メールアドレス"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            onChangeText={(email) => {
+              setEmail(email);
             }}
-          >
-            <Text style={styles.backWelcomeText}>{backButton}</Text>
-          </TouchableOpacity>
+          />
+          <TextInput
+            style={styles.inputContainerItem}
+            placeholder="  パスワード"
+            keyboardType="visible-password"
+            secureTextEntry={true}
+            onChangeText={(password) => {
+              setPassword(password);
+            }}
+          />
+        </View>
 
-          <Text style={styles.screenTitle}>ログイン</Text>
-
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.inputContainerItem}
-              placeholder="  メールアドレス"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              onChangeText={(email) => {
-                setEmail(email);
-              }}
-            />
-            <TextInput
-              style={styles.inputContainerItem}
-              placeholder="  パスワード"
-              keyboardType="visible-password"
-              secureTextEntry={true}
-              onChangeText={(password) => {
-                setPassword(password);
-              }}
-            />
-          </View>
-
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+        >
           <View style={styles.buttonContainer}>
             <TouchableOpacity
-              style={styles.signUp}
+              style={styles.signIp}
               onPress={() => {
                 toSignUp();
               }}
@@ -114,10 +116,10 @@ export function signInScreen() {
               <Text style={styles.nextStepText}>次へ</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </KeyboardAvoidingView>
+      </View>
 
-        <ExpoStatusBar style="auto" />
-      </KeyboardAvoidingView>
+      <ExpoStatusBar style="auto" />
     </SafeAreaView>
   );
 }
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  backWelcome: {
+  back: {
     width: "90%",
     alignItems: "center",
     justifyContent: "center",
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
     top: "5%",
   },
 
-  backWelcomeText: {
+  backText: {
     color: "#F7B3B3",
     fontSize: 50,
     position: "absolute",
@@ -182,17 +184,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     bottom: "1%",
-    width: "100%",
     backgroundColor: "#eee",
-    position: "absolute",
+    flex: 1,
+    width: "100%",
   },
 
-  signUp: {
+  signIp: {
     width: 120,
     height: 40,
     position: "absolute",
-    bottom: "3%",
-    left: "8%",
+    bottom: "7%",
+    right: "15%",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -209,8 +211,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    bottom: "3%",
-    right: "8%",
+    bottom: "7%",
+    left: "25%",
   },
 
   nextStepText: {
