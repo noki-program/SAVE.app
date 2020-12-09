@@ -3,6 +3,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import { toAddTaskScreen } from "../Components/navigation"
 
 
 export function taskListScreen() {
@@ -44,9 +45,7 @@ const styles = StyleSheet.create({
   listAddBottonText: {
     fontSize: 40,
     color: "#fff",
-    height: "100%",
-    width: "100%",
-    textAlign: "center",
-    justifyContent: "center",
-  }
+    position: "absolute",
+    top: "4%",
+  },
 });
