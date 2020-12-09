@@ -30,7 +30,7 @@ export function signInScreen() {
     navigation.navigate("signUp");
   };
 
-  const toWelcome = () => {
+  const toBack = () => {
     navigation.navigate("welcome");
   };
   const backButton = "<";
@@ -64,12 +64,12 @@ export function signInScreen() {
       <KeyboardAvoidingView style={styles.container}>
         <View style={styles.titleAndFieldView}>
           <TouchableOpacity
-            style={styles.backWelcome}
+            style={styles.back}
             onPress={() => {
-              toWelcome();
+              toBack();
             }}
           >
-            <Text style={styles.backWelcomeText}>{backButton}</Text>
+            <Text style={styles.backText}>{backButton}</Text>
           </TouchableOpacity>
 
           <Text style={styles.screenTitle}>ログイン</Text>
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  backWelcome: {
+  back: {
     width: "90%",
     alignItems: "center",
     justifyContent: "center",
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     top: "5%",
   },
 
-  backWelcomeText: {
+  backText: {
     color: "#F7B3B3",
     fontSize: 50,
     position: "absolute",
