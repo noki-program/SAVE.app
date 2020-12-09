@@ -7,7 +7,7 @@ import "react-native-gesture-handler";
 import {
   addTaskScreen,
   editTaskScreen,
-} from "./screens";
+} from "./Screens";
 
 import "./src/Fire";
 

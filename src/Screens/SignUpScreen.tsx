@@ -20,7 +20,7 @@ import firebase from "firebase";
 
 const screenWidth = Dimensions.get("screen").width;
 
-export function signUpScreen() {
+export function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

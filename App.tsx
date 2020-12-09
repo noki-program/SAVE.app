@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 //Screens.tsでまとめたものをimport
-import { signInScreen, signUpScreen, welcomeScreen, homeScreen, addTaskScreen } from "./src/Screens/screens";
+import { SignInScreen, SignUpScreen, welcomeScreen, homeScreen, addTaskScreen } from "./src/Screens/Screens";
 
 import "./src/Fire";
 
@@ -21,12 +21,12 @@ export default function App() {
         />
         <Stack.Screen
           name="signIn"
-          component={signInScreen}
+          component={SignInScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="signUp"
-          component={signUpScreen}
+          component={SignUpScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

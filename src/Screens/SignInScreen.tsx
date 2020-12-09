@@ -16,7 +16,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import firebase from "firebase";
 
-export function signInScreen() {
+export function SignInScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
