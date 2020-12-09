@@ -3,7 +3,6 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import { toAddTaskScreen } from "../Components/navigation"
 
 
 export function taskListScreen() {
