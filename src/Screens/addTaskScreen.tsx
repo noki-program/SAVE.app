@@ -38,31 +38,32 @@ export function addTaskScreen() {
   const backButton = "<";
 
   return (
-      <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.back}
-          onPress={() => {
-            toBack();
-          }}
-        >
-          <Text style={styles.backText}>{backButton}</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.back}
+        onPress={() => {
+          toBack();
+        }}
+      >
+        <Text style={styles.backText}>{backButton}</Text>
+      </TouchableOpacity>
 
-        <TextInput
-          style={styles.inputLimit}
-          placeholder="締め切り"
-          autoCapitalize="none"
-          onChangeText={() => {}}
-        />
-        <TextInput
-          style={styles.inputTitle}
-          placeholder="タスク名"
-          autoCapitalize="none"
-          onChangeText={() => {}}
-        />
-        {FirstItem()}
-        {LastItem()}
-      </View>
+      <TextInput
+        style={styles.inputLimit}
+        placeholder="締め切り"
+        autoCapitalize="none"
+        onChangeText={() => {}}
+      />
+      <TextInput
+        style={styles.inputTitle}
+        placeholder="タスク名"
+        autoCapitalize="none"
+        onChangeText={() => {}}
+      />
+      {FirstItem()}
+      <View style={{ height: 130 }}></View>
+      {LastItem()}
+    </View>
   );
 }
 
